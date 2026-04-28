@@ -161,7 +161,7 @@ def walkforward_regime_evaluate(signal_panel: pd.DataFrame,
         if len(eval_clean) < 10:
             continue
 
-        X = eval_clean[signal_cols].values
+        X = eval_clean[signal_cols].values.copy()
         for j in range(X.shape[1]):
             col_med = np.nanmedian(X[:, j])
             X[np.isnan(X[:, j]), j] = col_med
